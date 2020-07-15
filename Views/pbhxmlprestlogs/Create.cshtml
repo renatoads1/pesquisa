@@ -1,0 +1,68 @@
+﻿@model pesquisa.Models.ViewModels.pbhxmlprestlog
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>pbhxmlprestlog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="empresa" class="control-label"></label>
+                <input asp-for="empresa" class="form-control" />
+                <span asp-validation-for="empresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cnpj" class="control-label"></label>
+                <input asp-for="cnpj" class="form-control" />
+                <span asp-validation-for="cnpj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mes_de_vigencia" class="control-label"></label>
+                <input asp-for="mes_de_vigencia" class="form-control" />
+                <span asp-validation-for="mes_de_vigencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sucesso" class="control-label"></label>
+                <input asp-for="sucesso" class="form-control" />
+                <span asp-validation-for="sucesso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricao" class="control-label"></label>
+                <input asp-for="descricao" class="form-control" />
+                <span asp-validation-for="descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantidade_de_nfs_baixadas" class="control-label"></label>
+                <input asp-for="quantidade_de_nfs_baixadas" class="form-control" />
+                <span asp-validation-for="quantidade_de_nfs_baixadas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantidade_de_nfs_processadas" class="control-label"></label>
+                <input asp-for="quantidade_de_nfs_processadas" class="form-control" />
+                <span asp-validation-for="quantidade_de_nfs_processadas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tempo_execucao" class="control-label"></label>
+                <input asp-for="tempo_execucao" class="form-control" />
+                <span asp-validation-for="tempo_execucao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
