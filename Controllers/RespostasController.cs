@@ -26,7 +26,7 @@ namespace pesquisa.Controllers
         // GET: Respostas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Resposta.ToListAsync());
+            return View(await _context.Resposta.Include(obj => obj.Pergunta).ToListAsync());
         }
 
         // GET: Respostas/Details/5
@@ -60,15 +60,15 @@ namespace pesquisa.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RespostaSimpl,RespostaCompleta")] Resposta resposta)
+        public async Task<IActionResult> Create([Bind("Id,RespostaSimpl,RespostaCompleta,PerguntaId")] Resposta Resposta)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(resposta);
+                _context.Add(Resposta);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(resposta);
+            return View(Resposta);
         }
 
         // GET: Respostas/Edit/5
@@ -130,8 +130,7 @@ namespace pesquisa.Controllers
                 return NotFound();
             }
 
-            var resposta = await _context.Resposta
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var resposta = await _context.Resposta.FirstOrDefaultAsync(m => m.Id == id);
             if (resposta == null)
             {
                 return NotFound();
@@ -155,5 +154,6 @@ namespace pesquisa.Controllers
         {
             return _context.Resposta.Any(e => e.Id == id);
         }
+
     }
 }

@@ -50,7 +50,18 @@ namespace pesquisa.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PerguntaId");
+
                     b.ToTable("Resposta");
+                });
+
+            modelBuilder.Entity("pesquisa.Models.Resposta", b =>
+                {
+                    b.HasOne("pesquisa.Models.Pergunta", "Pergunta")
+                        .WithMany()
+                        .HasForeignKey("PerguntaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

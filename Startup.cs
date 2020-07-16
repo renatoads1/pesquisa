@@ -34,6 +34,7 @@ namespace pesquisa
                     options.UseMySql(Configuration.GetConnectionString("roboshomologacaoContext"), builder => builder.MigrationsAssembly("roboshomologacao")));
             //registra serviço no sistema
             services.AddScoped<PerguntaServices>();
+            services.AddScoped<RespostaServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

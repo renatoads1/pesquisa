@@ -8,8 +8,8 @@ using pesquisa.Data;
 namespace pesquisa.Migrations
 {
     [DbContext(typeof(pesquisaContext))]
-    [Migration("20200715124015_pergunta")]
-    partial class pergunta
+    [Migration("20200716144733_MyFirstMigration")]
+    partial class MyFirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,9 +22,6 @@ namespace pesquisa.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdResposta")
                         .HasColumnType("int");
 
                     b.Property<string>("PerguntaCompleta")
@@ -44,6 +41,9 @@ namespace pesquisa.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("PerguntaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("RespostaCompleta")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -52,7 +52,18 @@ namespace pesquisa.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PerguntaId");
+
                     b.ToTable("Resposta");
+                });
+
+            modelBuilder.Entity("pesquisa.Models.Resposta", b =>
+                {
+                    b.HasOne("pesquisa.Models.Pergunta", "Pergunta")
+                        .WithMany()
+                        .HasForeignKey("PerguntaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -7,7 +7,7 @@ namespace pesquisa.Models.ViewModels
 {
     public class RespostaFormViewModel
     {
-        public Resposta resposta { get; set; }
+        public Resposta Resposta { get; set; }
         public ICollection<Pergunta> Perguntas { get; set; }
     }
 }

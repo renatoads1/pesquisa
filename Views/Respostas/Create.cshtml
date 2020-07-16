@@ -14,19 +14,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-label"></label>
-                    <select asp-for="resposta.Id" class="form-control" asp-items="@(new SelectList(Model.Perguntas,"Id","PerguntaSimpl"))">
+                    <select asp-for="Resposta.PerguntaId" class="form-control" asp-items="@(new SelectList(Model.Perguntas,"Id","PerguntaSimpl"))">
                     </select>
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="resposta.RespostaSimpl" class="control-label"></label>
-                <input asp-for="resposta.RespostaSimpl" class="form-control" />
-                <span asp-validation-for="resposta.RespostaSimpl" class="text-danger"></span>
+                <label asp-for="Resposta.RespostaSimpl" class="control-label"></label>
+                <input asp-for="Resposta.RespostaSimpl" class="form-control" />
+                <span asp-validation-for="Resposta.RespostaSimpl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="resposta.RespostaCompleta" class="control-label"></label>
-                <input asp-for="resposta.RespostaCompleta" class="form-control" />
-                <span asp-validation-for="resposta.RespostaCompleta" class="text-danger"></span>
+                <label asp-for="Resposta.RespostaCompleta" class="control-label"></label>
+                <input asp-for="Resposta.RespostaCompleta" class="form-control" />
+                <span asp-validation-for="Resposta.RespostaCompleta" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
